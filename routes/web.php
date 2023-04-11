@@ -21,3 +21,6 @@ Route::get('/Réservation',[WebController::class, 'booking'])->name('booking');
 Route::get('/Qui_somme_nous',[WebController::class, 'about'])->name('about');
 Route::get('/inscription',[WebController::class, 'signup'])->name('signup');
 Route::get('/chambre/details',[WebController::class, 'details'])->name('room_details');
+
+
+Route::get('/payment', [\App\Http\Controllers\PaymentController::class,'showPayment']);
