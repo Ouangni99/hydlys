@@ -27,7 +27,7 @@
                             <div class="form-group">
                                 <label>HEURE D'ARRIVÉE</label>
                                 <div class="input-group">
-                                    <input id="datetimepicker" type="text" class="form-control"
+                                    <input id="demo" type="text" class="form-control demo"
                                            placeholder="11/02/2020">
                                     <span class="input-group-addon"></span>
                                 </div>
@@ -39,8 +39,8 @@
                             <div class="form-group">
                                 <label>HEURE DE SORTIE</label>
                                 <div class="input-group">
-                                    <input id="datetimepicker-check" type="text" class="form-control"
-                                           placeholder="11/02/2020">
+                                    <input id="demo" type="text" class="form-control demo"
+                                           placeholder="11/02/2020" name="date_out">
                                     <span class="input-group-addon"></span>
                                 </div>
                                 <i class='bx bxs-chevron-down'></i>

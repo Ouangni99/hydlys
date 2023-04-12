@@ -19,7 +19,7 @@
                                         <div class="form-group">
                                             <label>Date d'arrivé</label>
                                             <div class="input-group">
-                                                <input id="demo" type="text" class="form-control"
+                                                <input id="demo" type="text" class="form-control demo"
                                                        placeholder="09/29/2020" name="date_in">
                                                 <span class="input-group-addon"></span>
                                             </div>
@@ -31,7 +31,7 @@
                                         <div class="form-group">
                                             <label>Date de sortie</label>
                                             <div class="input-group">
-                                                <input id="datetimepicker-check" type="text" class="form-control"
+                                                <input type="text" class="form-control demo"
                                                        placeholder="09/29/2020" name="date_out">
                                                 <span class="input-group-addon"></span>
                                             </div>

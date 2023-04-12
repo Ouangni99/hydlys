@@ -62,7 +62,7 @@
 
 
 <script>
-    $('#demo').daterangepicker({
+    $('.demo').daterangepicker({
         "singleDatePicker": true,
         "showDropdowns": true,
         "autoApply": true,
