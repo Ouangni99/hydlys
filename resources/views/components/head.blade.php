@@ -34,4 +34,6 @@
     <link rel="icon" type="image/png" href="{{ asset('assets/img/logos/logo-booking.png') }}">
 
     <title>Hydlys - Résidence Hôtelière & Restaurant</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
 </head>
