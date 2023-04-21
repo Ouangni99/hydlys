@@ -2,11 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\DTO\RoomsDto;
+use App\Http\Requests\Room\RoomCreateRequest;
+use App\Http\Requests\Room\RoomUpdateRequest;
 use App\Models\Room;
-use Illuminate\Http\Request;
+use App\Services\RoomsService;
 
 class RoomsController extends Controller
 {
+
+    public function __construct(
+        public RoomsService $service
+    )
+    {
+    }
 
     public function index()
     {
@@ -19,9 +28,11 @@ class RoomsController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(RoomCreateRequest $request)
     {
-        //
+        $this->service->store(
+            RoomsDto::formRequest($request)
+        );
     }
 
 
@@ -37,9 +48,12 @@ class RoomsController extends Controller
     }
 
 
-    public function update(Request $request, Room $rooms)
+    public function update(RoomUpdateRequest $request, Room $rooms)
     {
-        //
+        $this->service->update(
+            $rooms,
+            RoomsDto::formRequest($request)
+        );
     }
 
 

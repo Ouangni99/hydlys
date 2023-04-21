@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->integer('rooms_number');
             $table->string('type')->default(RoomType::Rooms->value);
             $table->integer('pieces');
-            $table->longText('description');
+            $table->longText('description')->nullable();
             $table->integer('price');
             $table->timestamps();
         });
