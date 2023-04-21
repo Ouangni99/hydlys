@@ -67,7 +67,7 @@
         "showDropdowns": true,
         "autoApply": true,
         "locale": {
-            "format": "MM/DD/YYYY",
+            "format": "DD/MM/YYYY",
             "separator": " - ",
             "applyLabel": "Apply",
             "cancelLabel": "Cancel",
