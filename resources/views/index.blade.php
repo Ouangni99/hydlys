@@ -47,20 +47,8 @@
                             </div>
                         </div>
 
-                        <div class="col-lg-2 col-md-2">
-                            <div class="form-group">
-                                <label>INVITÉS</label>
-                                <select class="form-control">
-                                    <option>01</option>
-                                    <option>02</option>
-                                    <option>03</option>
-                                    <option>04</option>
-                                </select>
-                            </div>
-                        </div>
-
                         <div class="col-lg-4 col-md-4">
-                            <a class="default-btn btn-bg-one border-radius-5" href="{{ route('room_details') }}">
+                            <a class="default-btn btn-bg-one border-radius-5" href="{{ route('room_list') }}">
                                 Réserver
                             </a>
                         </div>
@@ -77,7 +65,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="about-img">
-                        <img src="assets/img/about/about-img.jpg" alt="Images">
+                        <img src="storage/rooms/accueil1.jpg" alt="Images">
                     </div>
                 </div>
 
@@ -230,9 +218,9 @@
                             <div class="col-lg-12">
                                 <div class="specialty-list-card">
                                     <i class="flaticon-champagne-glass"></i>
-                                    <h3>Bar de luxe</h3>
-                                    <p>Vous pouvez facilement bénéficier d'un accès gratuit à un bar de haut niveau à un
-                                        prix raisonnable..</p>
+                                    <h3>Restaurant</h3>
+                                    <p>Vous pouvez facilement bénéficier d'un accès au restaurant de haut niveau à un
+                                        prix raisonnable...</p>
                                 </div>
                             </div>
 
@@ -252,7 +240,7 @@
     </div>
     <!-- Specialty Area End -->
 
-    <!-- Room Area -->
+    <!-- rooms Area -->
     <div class="room-area pt-100 pb-70 section-bg">
         <div class="container">
             <div class="section-title text-center">
@@ -260,142 +248,36 @@
                 <h2>Nos chambres et tarifs</h2>
             </div>
             <div class="row pt-45">
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-card">
-                        <a href="{{ route('room_details') }}">
-                            <img src="assets/img/room/room-img1.jpg" alt="Images">
-                        </a>
-                        <div class="content">
-                            <h3><a href="{{ route('room_details') }}">Chambre de luxe</a></h3>
-                            <ul>
-                                <li>320</li>
-                                <li>Par nuitée</li>
-                            </ul>
-                            <div class="rating">
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star-half'></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-card">
-                        <a href="{{ route('room_details') }}">
-                            <img src="assets/img/room/room-img2.jpg" alt="Images">
-                        </a>
-                        <div class="content">
-                            <h3><a href="{{ route('room_details') }}">Chambre individuelle</a></h3>
-                            <ul>
-                                <li>300</li>
-                                <li>Par nuitée</li>
-                            </ul>
-                            <div class="rating">
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star-half'></i>
+                @foreach($rooms as $room)
+                    <div class="col-lg-4 col-md-6">
+                        <div class="room-card">
+                            <a href="{{route('room_details',$room->id)}}">
+                                <img src="{{$room->getPicture()->getImageUrl()}}" alt="Images">
+                            </a>
+                            <div class="content">
+                                <h3><a href="{{route('room_details',$room->id)}}">{{$room->getSlug()}}</a></h3>
+                                <ul>
+                                    <li>{{$room->price}} FCFA</li>
+                                    <li>Par nuitée</li>
+                                </ul>
+                                {{--<div class="rating">
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star'></i>
+                                    <i class='bx bxs-star-half'></i>
+                                </div>--}}
                             </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-card">
-                        <a href="{{ route('room_details') }}">
-                            <img src="assets/img/room/room-img3.jpg" alt="Images">
-                        </a>
-                        <div class="content">
-                            <h3><a href="{{ route('room_details') }}">Chambre double</a></h3>
-                            <ul>
-                                <li>350</li>
-                                <li>Par nuitée</li>
-                            </ul>
-                            <div class="rating">
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star-half'></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-card">
-                        <a href="{{ route('room_details') }}">
-                            <img src="assets/img/room/room-img4.jpg" alt="Images">
-                        </a>
-                        <div class="content">
-                            <h3><a href="{{ route('room_details') }}">Salle de séjour</a></h3>
-                            <ul>
-                                <li>370</li>
-                                <li>Par nuitée</li>
-                            </ul>
-                            <div class="rating">
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star-half'></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-card">
-                        <a href="{{ route('room_details') }}">
-                            <img src="assets/img/room/room-img5.jpg" alt="Images">
-                        </a>
-                        <div class="content">
-                            <h3><a href="{{ route('room_details') }}">Chambre de luxe</a></h3>
-                            <ul>
-                                <li>270</li>
-                                <li>Par nuitée</li>
-                            </ul>
-                            <div class="rating">
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star-half'></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-card">
-                        <a href="{{ route('room_details') }}">
-                            <img src="assets/img/room/room-img6.jpg" alt="Images">
-                        </a>
-                        <div class="content">
-                            <h3><a href="{{ route('room_details') }}">Chambre présidentielle</a></h3>
-                            <ul>
-                                <li>270</li>
-                                <li>Par nuitée</li>
-                            </ul>
-                            <div class="rating">
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star-half'></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
             </div>
         </div>
     </div>
-    <!-- Room Area End -->
+    <!-- rooms Area End -->
 
     <!-- FAQ Area -->
     <div class="faq-area pt-100 pb-70 section-bg">

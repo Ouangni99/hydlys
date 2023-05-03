@@ -21,7 +21,7 @@ template.
 ** - Reservation Area Style
 ** - Ability Area Style
 ** - Specialty Area Style
-** - Room Area Style
+** - rooms Area Style
 ** - Testimonials Area Style
 ** - Faq Area Style
 ** - Contact Area Style
@@ -2729,7 +2729,7 @@ Specialty Area
 Specialty Area End
 ====================================*/
 /*=================================
-Room Area
+rooms Area
 ====================================*/
 .room-card {
   margin-bottom: 30px;
@@ -3371,7 +3371,7 @@ Room Area
 }
 
 /*=================================
-Room Area End
+rooms Area End
 ====================================*/
 /*=================================
 Testimonials Area

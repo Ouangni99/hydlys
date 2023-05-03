@@ -1,168 +1,119 @@
+<style>
+    .selected {
+        background-color: #f0f0f0;
+        border: 1px solid #333;
+    }
+    .selectable.selected {
+  border: 2px solid blue;
+}
+</style>
 <x-app-layout>
     <!-- Inner Banner -->
     <x-sub-menu :fill="$fill"/>
     <!-- Inner Banner End -->
 
-    <!-- Room Area -->
+    <!-- rooms Area -->
     <div class="room-area pt-100 pb-70">
         <div class="container">
             <div class="section-title text-center">
                 <span class="sp-color">CHAMBRES</span>
                 <h2>Nos chambres et tarifs</h2>
             </div>
-            <div class="row pt-45">
+            {{-- action="{{ route('submit') }}" --}}
+            <form action="{{ route('payment.test') }}"  method="POST">
+                @csrf
+                <div class="form-group w-25">
+                    <label>Le nombre de jours</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control"
+                               value="1" name="quantity">
+                        <span class="input-group-addon"></span>
+                    </div>
+                    <i class='bx bxs-quantity'></i>
+                </div>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-card">
-                        <a href="room-details.html">
-                            <img src="assets/img/room/room-img1.jpg" alt="Images">
-                        </a>
-                        <div class="content">
-                            <h3><a href="room-details.html">Chambre de luxe</a></h3>
-                            <ul>
-                                <li>320</li>
-                                <li>Par nuitée</li>
-                            </ul>
-                            <div class="rating">
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star-half'></i>
+                <div class="row pt-45">
+
+                    @foreach($rooms as $room)
+                        <div class="col-lg-4 col-md-6 selectable" data-id="{{ $room->id }}" >
+                            <div class="room-card">
+                                {{-- <a href="{{route('room_details',$room->id)}}">
+                                    <img src="{{$room->getPicture()->getImageUrl()}}" alt="Images">
+                                </a> --}}
+
+                                    <img src="{{$room->getPicture()->getImageUrl()}}" alt="Images">
+
+                                <div class="content">
+                                    {{-- <h3><a href="{{route('room_details',$room->id)}}">{{$room->getSlug()}}</a></h3> --}}
+                                    <h3>{{$room->getSlug()}}</h3>
+                                    <ul>
+                                        <li>{{$room->price}} FCFA</li>
+                                        <li>Par nuitée</li>
+                                    </ul>
+
+                                </div>
                             </div>
+                        </div>
+                        <input type="hidden" name="ids[]" value="{{ $room->id }}">
+                    @endforeach
+
+
+                    <div class="col-lg-12 col-md-12">
+                        <div class="pagination-area">
+                            {{--<a href="#" class="prev page-numbers">
+                                <i class='bx bx-chevrons-left'></i>
+                            </a>
+
+                            <span class="page-numbers current" aria-current="page">1</span>
+                            <a href="#" class="page-numbers">2</a>
+                            <a href="#" class="page-numbers">3</a>
+
+                            <a href="#" class="next page-numbers">
+                                <i class='bx bx-chevrons-right'></i>
+                            </a>--}}
+                <button type="submit" class="btn btn-primary mt-3">Reserver</button>
+
+                            {{-- {{$rooms->links()}} --}}
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-card">
-                        <a href="room-details.html">
-                            <img src="assets/img/room/room-img2.jpg" alt="Images">
-                        </a>
-                        <div class="content">
-                            <h3><a href="room-details.html">Chambre individuelle</a></h3>
-                            <ul>
-                                <li>300</li>
-                                <li>Par nuitée</li>
-                            </ul>
-                            <div class="rating">
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star-half'></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-card">
-                        <a href="room-details.html">
-                            <img src="assets/img/room/room-img3.jpg" alt="Images">
-                        </a>
-                        <div class="content">
-                            <h3><a href="room-details.html">Chambre double</a></h3>
-                            <ul>
-                                <li>350</li>
-                                <li>Par nuitée</li>
-                            </ul>
-                            <div class="rating">
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star-half'></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-card">
-                        <a href="room-details.html">
-                            <img src="assets/img/room/room-img4.jpg" alt="Images">
-                        </a>
-                        <div class="content">
-                            <h3><a href="room-details.html">Salle de séjour</a></h3>
-                            <ul>
-                                <li>370</li>
-                                <li>Par nuitée</li>
-                            </ul>
-                            <div class="rating">
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star-half'></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-card">
-                        <a href="room-details.html">
-                            <img src="assets/img/room/room-img5.jpg" alt="Images">
-                        </a>
-                        <div class="content">
-                            <h3><a href="room-details.html">Chambre de luxe</a></h3>
-                            <ul>
-                                <li>270</li>
-                                <li>Par nuitée</li>
-                            </ul>
-                            <div class="rating">
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star-half'></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="room-card">
-                        <a href="room-details.html">
-                            <img src="assets/img/room/room-img6.jpg" alt="Images">
-                        </a>
-                        <div class="content">
-                            <h3><a href="room-details.html">Chambre présidentielle</a></h3>
-                            <ul>
-                                <li>270</li>
-                                <li>Par nuitée</li>
-                            </ul>
-                            <div class="rating">
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star'></i>
-                                <i class='bx bxs-star-half'></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-lg-12 col-md-12">
-                    <div class="pagination-area">
-                        <a href="#" class="prev page-numbers">
-                            <i class='bx bx-chevrons-left'></i>
-                        </a>
-
-                        <span class="page-numbers current" aria-current="page">1</span>
-                        <a href="#" class="page-numbers">2</a>
-                        <a href="#" class="page-numbers">3</a>
-
-                        <a href="#" class="next page-numbers">
-                            <i class='bx bx-chevrons-right'></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+                <input type="hidden" name="selected_ids" id="selected_ids">
+            </form>
         </div>
     </div>
-    <!-- Room Area End -->
+    <!-- rooms Area End -->
 
 </x-app-layout>
+
+
+<script>
+    var selectedIds = [];
+
+    function toggleSelection(id) {
+      var div = document.querySelector('.selectable[data-id="' + id + '"]');
+      if (div.classList.contains('selected')) {
+        div.classList.remove('selected');
+        selectedIds = selectedIds.filter(function(selectedId) {
+          return selectedId !== id;
+        });
+      } else {
+        div.classList.add('selected');
+        selectedIds.push(id);
+      }
+      document.getElementById('selected_ids').value = selectedIds.join(',');
+    }
+
+    document.querySelectorAll('.selectable').forEach(function(div) {
+      div.addEventListener('click', function() {
+        toggleSelection(this.getAttribute('data-id'));
+      });
+    });
+
+    document.querySelector('form').addEventListener('submit', function(event) {
+      if (selectedIds.length === 0) {
+        alert('Veuillez sélectionner au moins un élément.');
+        event.preventDefault();
+      }
+    });
+  </script>
+

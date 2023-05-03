@@ -2,12 +2,10 @@
 
 namespace App\Models;
 
-use App\enums\RoomType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\UploadedFile;
-use Illuminate\Support\Str;
 
 class Room extends Model
 {
@@ -21,13 +19,13 @@ class Room extends Model
         'type',
     ];
 
-    protected $casts = [
-        'type' => RoomType::class
-    ];
+//    protected $casts = [
+//        'type' => RoomType::class
+//    ];
 
     public function getSlug(): string
     {
-        return Str::slug($this->title);
+        return $this->type . ' ' . $this->rooms_number;
     }
 
     /**
@@ -46,7 +44,9 @@ class Room extends Model
             ];
         }
         if (count($pictures) > 0) {
+
             $this->pictures()->createMany($pictures);
+
         }
     }
 

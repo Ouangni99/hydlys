@@ -360,7 +360,7 @@
     padding: 8px 14px;
     font-size: 15px;
   }
-  /* Room Area CSS */
+  /* rooms Area CSS */
   .room-card .content .rating {
     top: auto;
     bottom: 20px;
@@ -389,7 +389,7 @@
     -webkit-transform: translateY(-35%);
             transform: translateY(-35%);
   }
-  /* Room Area CSS End */
+  /* rooms Area CSS End */
   /* Testimonials Area CSS */
   .testimonials-area {
     margin-bottom: 70px;

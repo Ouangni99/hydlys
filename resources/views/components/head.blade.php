@@ -29,6 +29,8 @@
     <!-- Theme Dark CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/theme-dark.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/custom.css') }}">
+    @vite(['resources/css/app.css','resources/css/app.js'])
+
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('assets/img/logos/logo-booking.png') }}">

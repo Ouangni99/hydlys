@@ -24,7 +24,15 @@ class RoomsController extends Controller
 
     public function create()
     {
-        //
+        $room = new Room();
+        $room->fill([
+            'pieces' => 2,
+            'rooms_number' => null,
+            'price' => 25000,
+        ]);
+        return view('admin.rooms.form', [
+            'room' => $room,
+        ]);
     }
 
 
@@ -42,18 +50,23 @@ class RoomsController extends Controller
     }
 
 
-    public function edit(Room $rooms)
+    public function edit(Room $room)
     {
-        //
+
+        return view('admin.rooms.form', [
+            'room' => $room,
+        ]);
     }
 
 
-    public function update(RoomUpdateRequest $request, Room $rooms)
+    public function update(RoomUpdateRequest $request, Room $room)
     {
+
         $this->service->update(
-            $rooms,
+            $room,
             RoomsDto::formRequest($request)
         );
+
     }
 
 

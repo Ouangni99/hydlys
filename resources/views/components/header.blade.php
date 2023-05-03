@@ -38,7 +38,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ route('room') }}"
+                            <a href="{{ route('room_list') }}"
                                class="nav-link {{ request()->routeIs('room') ? 'active':'' }}">
                                 Nos chambres
                             </a>

@@ -17,19 +17,22 @@ Route::middleware('auth')->group(function () {
 
 Route::get('/', [WebController::class, 'index'])->name('accueil');
 Route::get('/contact', [WebController::class, 'contact'])->name('contact');
-Route::get('/chambre', [WebController::class, 'room'])->name('room');
+Route::get('/chambre', [WebController::class, 'room'])->name('room_list');
 Route::get('/Réservation', [WebController::class, 'booking'])->name('booking');
 Route::get('/Qui_somme_nous', [WebController::class, 'about'])->name('about');
 Route::get('/inscription', [WebController::class, 'signup'])->name('signup');
-Route::get('/chambre/details', [WebController::class, 'details'])->name('room_details');
+Route::get('/chambre/{room}/details', [WebController::class, 'details'])->name('room_details');
 
 Route::resource('rooms', \App\Http\Controllers\RoomsController::class);
+Route::resource('pictures', \App\Http\Controllers\RoomsController::class);
 
 Route::get('/payment/notify', [\App\Http\Controllers\PaymentController::class, 'notify'])->name('payment.notify');
-Route::get('/payment/retour', [\App\Http\Controllers\PaymentController::class, 'retour'])->name('payment.retour');
+Route::get('/payment/retour', [\App\Http\Controllers\PaymentController::class, 'retour'])->name('payment.retour2');
+Route::post('/payment/retour', [\App\Http\Controllers\PaymentController::class, 'retour'])->name('payment.retour');
 
 Route::get('/payment', [\App\Http\Controllers\PaymentController::class, 'showPayment']);
 Route::post('/payment', [\App\Http\Controllers\PaymentController::class, 'testGenerator'])->name('payment.checkout');
+Route::post('/payment/test', [\App\Http\Controllers\PaymentController::class, 'test'])->name('payment.test');
 
 
 require __DIR__ . '/auth.php';

@@ -21,7 +21,7 @@ class RoomUpdateRequest extends FormRequest
             'price' => ['required'],
             'type' => ['required'],
             'description' => ['required'],
-            'pictures' => ['required'],
+            'pictures' => [''],
         ];
     }
 }

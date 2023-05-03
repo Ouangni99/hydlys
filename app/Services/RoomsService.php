@@ -8,9 +8,9 @@ use App\Models\Room;
 class RoomsService
 {
 
-    public function store(RoomsDto $dto)
+    public function store(RoomsDto $dto):Room
     {
-        $room = Room::create($dto->toArray());
+        $room = Room::query()->create($dto->toArray());
         $room->attachFiles($dto->pictures);
 
         return $room;
@@ -18,8 +18,9 @@ class RoomsService
 
     public function update(Room $room, RoomsDto $dto): Room
     {
+
         $room->update($dto->toArray());
-        $room->attachFiles($dto->pictures);
+        if ($dto->pictures !== null) $room->attachFiles($dto->pictures);
 
         return $room;
     }

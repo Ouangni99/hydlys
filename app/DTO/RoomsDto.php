@@ -8,12 +8,12 @@ class RoomsDto implements \App\Interface\DataTransfertObject
 {
 
     public function __construct(
-        public readonly int    $rooms_number,
-        public readonly int    $pieces,
-        public readonly int    $price,
-        public readonly string $type,
-        public readonly string $description,
-        public readonly array  $pictures,
+        public readonly int        $rooms_number,
+        public readonly int        $pieces,
+        public readonly int        $price,
+        public readonly string     $type,
+        public readonly string     $description,
+        public readonly array|null $pictures,
     )
     {
     }
