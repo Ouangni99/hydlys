@@ -24,7 +24,7 @@
                             <div class="form-group col">
                                 <label for="type">Type</label>
                                 <select name="type" id="type" class="form-control">
-                                    @foreach(\App\enums\RoomType::cases() as $k => $v)
+                                    @foreach(\App\Enums\RoomType::cases() as $k => $v)
                                         <option
                                             @selected($room->type) value="{!! $v->value !!}">{{ $v->value }}</option>
                                     @endforeach
