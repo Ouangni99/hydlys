@@ -17,14 +17,19 @@ jobs:
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
         with:
-          fetch-depth: 1
+          php-version: '8.0'
 
-      - name: Install composer dependencies
-        run: |
-          composer install --no-scripts
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress --no-interaction
 
+      - name: Set up environment variables
+        run: cp .env.example .env
       - name: Prepare Laravel Application
         run: |
           cp .env.ci .env
