@@ -23,7 +23,7 @@ jobs:
 
       - name: Install composer dependencies
         run: |
-          composer install --no-scripts
+          composer install
 
       - name: Prepare Laravel Application
         run: |
@@ -32,3 +32,8 @@ jobs:
 
       - name: Run Testsuite
         run: vendor/bin/phpunit tests/
+
+      - name: Install front-end dependencies
+        run: |
+          npm install
+          npm run dev
